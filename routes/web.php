@@ -11,10 +11,8 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('callback', function () {
     return view('welcome');
 });
 
-Route::get('/auth', function() {
-    return 'test';
-});
+Route::get('bc-auth', 'AuthController@getOauth');
