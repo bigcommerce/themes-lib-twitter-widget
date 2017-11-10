@@ -15,4 +15,4 @@ Route::get('callback', function () {
     return view('welcome');
 });
 
-Route::get('bc-auth', 'AuthController@getOauth');
+Route::get('bc-auth', 'AuthController@install');
