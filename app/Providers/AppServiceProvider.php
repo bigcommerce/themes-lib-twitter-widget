@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Libraries\BigCommerceOAuthorizer;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind('BigCommerceOAuthorizer', function () {
+            return new BigCommerceOAuthorizer();
+        });
     }
 }
