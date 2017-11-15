@@ -10,9 +10,5 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('callback', function () {
-    return view('welcome');
-});
-
 Route::get('bc-auth', 'AuthController@install');
+Route::get('callback', 'WidgetController@load');
