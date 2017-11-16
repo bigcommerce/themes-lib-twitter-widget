@@ -1,5 +1,5 @@
 <?php
-namespace App\Libraries;
+namespace App\Libraries\BigCommerce;
 
 use Bigcommerce\Api\Connection;
 use Bigcommerce\Api\Error;
@@ -31,7 +31,7 @@ class BigCommerceOAuthorizer
         $requestData = [
             "client_id" => $this->clientId,
             "client_secret" => $this->clientSecret,
-            "redirect_uri" => 'http://127.0.0.1:8000/bc-auth',
+            "redirect_uri" => $this->redirectUrl,
             "grant_type" => $this::BIG_COMMERCE_TOKEN_GRANT_TYPE,
             "code" => $tempCode,
             "scope" => $scope,

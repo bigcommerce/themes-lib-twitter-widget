@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Libraries\BigCommerceOAuthorizer;
+use App\Libraries\BigCommerce\BigCommerceOAuthorizer;
 
 class AppServiceProvider extends ServiceProvider
 {

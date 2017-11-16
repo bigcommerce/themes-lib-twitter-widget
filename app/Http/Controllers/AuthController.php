@@ -1,20 +1,20 @@
 <?php
-
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
-use App\Libraries\BigCommerceOAuthorizer;
+use App\Libraries\BigCommerce\BigCommerceOAuthorizer;
+use App\Libraries\BigCommerce\BigCommerceQueries;
 
 class AuthController extends Controller
 {
-    protected $oauth;
-
-    public function __construct()
+    public function install(Request $request)
     {
-        $this->oauth = new BigCommerceOAuthorizer();
-    }
+        $oauth = new BigCommerceOAuthorizer();
+        $queries = new BigCommerceQueries();
 
-    public function getOauth(Request $request)
-    {
-        return $this->oauth->authorize($request->code, $request->scope, $request->context);
+        $userInfo = $oauth->authorize($request->code, $request->scope, $request->context);
+        $queries->createUser($userInfo);
+
+        return view('widget', get_object_vars($userInfo));
     }
 }
