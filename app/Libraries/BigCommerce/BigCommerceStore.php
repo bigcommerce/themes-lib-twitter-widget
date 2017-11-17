@@ -25,7 +25,7 @@ class BigCommerceStore
         return $data;
     }
 
-    public function setStore($request) {
+    public function currentStore($request) {
         $data = $this->checkPayload($request);
 
         return DB::table('users')->where('context', $data['context'])->first();
