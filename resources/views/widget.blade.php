@@ -2,5 +2,6 @@
   * Temporary obviously
   *
   */
-{{ $context }}
-{{ $access_token }}
+  <?php
+dump($user);
+dump($template);
