@@ -29,8 +29,8 @@ class BigCommerceTemplates
     private function getMostRecentTemplate()
     {
         return [
-            'version' => '1.1',
-            'template' => 'twitter 1.1'
+            'version' => '1',
+            'template' => view('template')->render()
         ];
     }
 
