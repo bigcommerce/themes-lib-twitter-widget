@@ -3,8 +3,9 @@ namespace App\Libraries\BigCommerce;
 
 use Illuminate\Support\Facades\DB;
 
-class BigCommerceQueries {
-    public function createUser ($userInfo)
+class BigCommerceQueries
+{
+    public function createUser($userInfo)
     {
         $tableData = [
             [
@@ -26,5 +27,18 @@ class BigCommerceQueries {
         }
 
         return $userCreated;
+    }
+
+    public function updateUser($userInfo)
+    {
+        $userUpdated = DB::table('users')
+            ->where('context', $userInfo['context'])
+            ->update([
+                'twitter_handle' => $userInfo['twitterHandle'],
+                'number_posts' => $userInfo['numberPosts'],
+                'style' => $userInfo['style']
+            ]);
+
+        return json_encode($userUpdated);
     }
 }

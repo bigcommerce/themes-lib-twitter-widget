@@ -17,5 +17,12 @@
         "gulp-babel": "^7.0.0",
         "gulp-concat": "^2.6.1",
         "gulp-uglify": "^3.0.0"
+    },
+    "dependencies": {
+        "axios": "^0.17.1",
+        "bootstrap-sass": "^3.3.7",
+        "jquery": "^3.2.1",
+        "laravel-mix": "^1.6.1",
+        "vue": "^2.1.10"
     }
 }
