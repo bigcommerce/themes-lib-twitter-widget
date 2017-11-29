@@ -1,1 +1,43 @@
+@import '../../../node_modules/bulma/bulma';
+@import 'fonts';
 
+$background-color: #F6F7F9;
+$border-color: #DFE3E8;
+
+body {
+  font-family: Circular, sans-serif;
+  background-color: $background-color;
+}
+
+.merchant-branding {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 56px;
+  background-color: #fff;
+
+  img {
+    height: 46px;
+  }
+}
+
+.pxu-branding {
+  display: flex;
+  align-items: center;
+  height: 56px;
+  width: 266px;
+  padding: 12px;
+  border: 1px solid $border-color;
+  border-radius: 38px;
+
+  svg {
+    height: 32px;
+    width: 32px;
+    padding-right: 8px;
+  }
+}
+
+.pxu-learn-more {
+  font-size: 14px;
+}
