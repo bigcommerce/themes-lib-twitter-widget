@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,3 +13,5 @@
 */
 Route::get('bc-auth', 'AuthController@install');
 Route::get('callback', 'WidgetController@load');
+Route::get('editor', 'WidgetController@showEditor');
+Route::post('save', 'WidgetController@save');

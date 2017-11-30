@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Libraries\BigCommerce\BigCommerceTemplates;
 use App\Libraries\BigCommerce\BigCommerceStore;
+use App\Libraries\BigCommerce\BigCommerceQueries;
 
 class WidgetController extends Controller
 {
@@ -20,6 +21,14 @@ class WidgetController extends Controller
             'template'=>get_object_vars($template)
         ];
 
-        return view('widget', $data);
+        return view('editor', $data);
+    }
+
+    public function save(Request $request)
+    {
+        $queries = new BigCommerceQueries();
+        $requestData = $request->all();
+
+        return $queries->updateUser($requestData);
     }
 }
