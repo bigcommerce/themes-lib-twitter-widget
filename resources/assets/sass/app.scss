@@ -3,8 +3,14 @@
 
 $background-color: #F6F7F9;
 $border-color: #DFE3E8;
+$success-color: #5AC769;
+$merchant-red: #DF5855;
 
-body {
+.main-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
   font-family: Circular, sans-serif;
   background-color: $background-color;
 }
@@ -20,6 +26,73 @@ body {
   img {
     height: 46px;
   }
+}
+
+.container {
+  max-width: 380px;
+}
+
+.is-title {
+  margin-top: 68px;
+  margin-bottom: 34px;
+  font-size: 24px;
+}
+
+.field:not(.last-child) {
+  margin-bottom: 24px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.input,
+.select select {
+  height: 36px;
+  font-size: 14px;
+  color: #000;
+  border-radius: 0;
+  box-shadow: none;
+
+  &:active,
+  &:focus {
+    border-color: $merchant-red;
+    box-shadow: none;
+  }
+
+  &::placeholder {
+    opacity: 20%;
+  }
+}
+
+.select:not(.is-multiple)::after {
+  border-color: $merchant-red;
+}
+
+.button {
+  display: flex;
+  width: 85px;
+  height: 38px;
+  padding-top: 0;
+  padding-bottom: 0;
+  color: #fff !important;
+  font-size: 14px;
+  background-color: $merchant-red;
+  border: none;
+  border-radius: 38px;
+
+  &:hover,
+  &:active,
+  &:focus
+  &.is-loading {
+    opacity: 0.5;
+  }
+}
+
+.pxu-branding-container {
+  margin-top: 68px;
+  margin-bottom: 38px;
 }
 
 .pxu-branding {
@@ -40,4 +113,20 @@ body {
 
 .pxu-learn-more {
   font-size: 14px;
+}
+
+.notification {
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+
+  > .delete {
+    top: 20px;
+    right: 10px;
+    background-color: transparent;
+  }
+
+  &.is-primary {
+    background-color: $success-color;
+  }
 }
