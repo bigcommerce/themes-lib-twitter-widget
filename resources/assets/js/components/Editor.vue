@@ -55,21 +55,6 @@
           This allows you to choose the amount of Twitter posts to display to your customers
         </p>
       </div>
-      <div class="field">
-        <label for="theme" class="label">Theme</label>
-        <div class="control">
-          <div class="select is-fullwidth">
-            <select v-model="widgetStyle">
-                <option value="light">Light</option>
-                <option value="dark">Dark</option>
-                <option value="alternate">Alternate</option>
-            </select>
-          </div>
-        </div>
-        <p class="help">
-            Choose a particular alternative version of the twitter theme.
-        </p>
-      </div>
       <div class="control">
           <button
           @click="saveWidget"
@@ -87,13 +72,12 @@
 import axios from "axios";
 
 export default {
-  props: ['twitterHandle', 'context', 'numPosts', 'colorStyle'],
+  props: ['twitterHandle', 'context', 'numPosts'],
   data: function() {
     return {
       handle: this.twitterHandle,
       storeHash: this.context,
       howMany: this.numPosts,
-      widgetStyle: this.colorStyle,
       submitInProgress: false,
       success: false,
       error: false
@@ -109,7 +93,6 @@ export default {
           twitterHandle: this.handle,
           context: this.storeHash,
           numberPosts: this.howMany,
-          style: this.widgetStyle
         })
         .then(
           function(response) {

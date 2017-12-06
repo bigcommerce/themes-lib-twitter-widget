@@ -10,7 +10,6 @@
           :twitter-handle="'{{$user['twitter_handle']}}'"
           :context="'{{$user['context']}}'"
           :num-posts="'{{$user['number_posts']}}'"
-          :color-style="'{{$user['style']}}'"
         >
         </editor>
       </div>
