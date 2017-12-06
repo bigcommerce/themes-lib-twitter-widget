@@ -41,4 +41,11 @@ class BigCommerceQueries
 
         return json_encode($userUpdated);
     }
+
+    public function getUser($context)
+    {
+        return DB::table('users')
+            ->where('context', $context)
+            ->first();
+    }
 }

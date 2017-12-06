@@ -20,16 +20,19 @@ class AuthController extends Controller
             $request->context
         );
         $queries->createUser($userInfo);
+
+        $userCreated = $queries->getUser($userInfo->context);
+
         $templates = new BigCommerceTemplates(
-            $userInfo->context,
-            $userInfo->access_token
+            $userCreated->context,
+            $userCreated->access_token
         );
         $template = $templates->updateClientTemplate();
         $data = [
-            'user'=>get_object_vars($userInfo),
+            'user'=>get_object_vars($userCreated),
             'template'=>get_object_vars($template)
         ];
 
-        return view('widget', $data);
+        return view('editor', $data);
     }
 }
