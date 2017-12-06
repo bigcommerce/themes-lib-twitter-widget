@@ -12,7 +12,7 @@ class BigCommerceTemplates
         $template = $this->updateClientTemplate();
     }
 
-    private function getClientUuid()
+    public function getClientUuid()
     {
         $templates = $this->client->get('content/widget-templates');
 

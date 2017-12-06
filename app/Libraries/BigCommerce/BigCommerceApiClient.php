@@ -47,4 +47,9 @@ class BigCommerceApiClient
 
         return json_decode($response->getBody())->data;
     }
+
+    public function delete($path)
+    {
+        return $this->api->delete($path);
+    }
 }

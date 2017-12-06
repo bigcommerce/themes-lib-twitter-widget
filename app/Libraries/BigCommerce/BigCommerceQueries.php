@@ -26,7 +26,7 @@ class BigCommerceQueries
             $userCreated = DB::table('users')->insert($tableData);
         }
 
-        return $userCreated;
+        return $this->getUser($userInfo->context);
     }
 
     public function updateUser($userInfo)
@@ -36,10 +36,9 @@ class BigCommerceQueries
             ->update([
                 'twitter_handle' => $userInfo['twitterHandle'],
                 'number_posts' => $userInfo['numberPosts'],
-                'style' => $userInfo['style']
             ]);
 
-        return json_encode($userUpdated);
+        return $this->getUser($userInfo['context']);
     }
 
     public function getUser($context)

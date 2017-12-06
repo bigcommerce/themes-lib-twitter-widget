@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Libraries\BigCommerce\BigCommerceTemplates;
 use App\Libraries\BigCommerce\BigCommerceStore;
 use App\Libraries\BigCommerce\BigCommerceQueries;
+use App\Libraries\BigCommerce\BigCommerceWidgets;
 
 class WidgetController extends Controller
 {
@@ -28,7 +29,9 @@ class WidgetController extends Controller
     {
         $queries = new BigCommerceQueries();
         $requestData = $request->all();
-
-        return $queries->updateUser($requestData);
+        $user = $queries->updateUser($requestData);
+        $widgetHelper = new BigCommerceWidgets($user->context, $user->access_token);
+        $widgetPlacement = $widgetHelper->createWidget();
+        return json_encode(is_object($widgetPlacement));
     }
 }

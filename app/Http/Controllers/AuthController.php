@@ -19,9 +19,8 @@ class AuthController extends Controller
             $request->scope,
             $request->context
         );
-        $queries->createUser($userInfo);
 
-        $userCreated = $queries->getUser($userInfo->context);
+        $userCreated = $queries->createUser($userInfo);
 
         $templates = new BigCommerceTemplates(
             $userCreated->context,

@@ -1,18 +1,24 @@
-const configList = {
-  "profile": {"screenName": 'elonmusk'},
-  'maxTweets': 4,
-  'enableLinks': true,
-  'showUser': true,
-  'showTime': true,
-  'dataOnly': false,
-  'useEmoji': true,
-  'showImages': true,
-  'showRetweet': false,
-  'customCallback': (tweets) => populateTpl(tweets),
-  'showInteraction': false,
-}
+$(document).ready(function() {
+  const $tweets = $('.tweets');
+  const handle = $tweets.find('[data-handle]').data('handle').replace('@', '');
+  const maxTweets = $tweets.find('[data-max-tweets]').data('max-tweets');
 
-twitterFetcher.fetch(configList);
+  const configList = {
+    "profile": {'screenName': handle},
+    'maxTweets': maxTweets,
+    'enableLinks': true,
+    'showUser': true,
+    'showTime': true,
+    'dataOnly': false,
+    'useEmoji': true,
+    'showImages': true,
+    'showRetweet': false,
+    'customCallback': (tweets) => populateTpl(tweets),
+    'showInteraction': false,
+  }
+
+  twitterFetcher.fetch(configList);
+})
 
 function extractAuthor(el) {
   const $el = $(el);
@@ -36,15 +42,16 @@ function populateTpl(tweets){
   // todo proper scoping
   const $templateContainer = $('.tweets');
   let html = '';
-
+  console.log(tweets.length);
   for (let i = 0, lgth = tweets.length; i < lgth ; i++) {
     let $tweetObject = $(tweets[i]);
+    console.log($tweetObject);
     const authorInfo = extractAuthor($tweetObject[0]);
     const meta = extractMeta($tweetObject[2]);
     const content = $tweetObject[1];
     const j = i+1;
-    let $template = $('.tweet:nth-child('+ j +')', $templateContainer);
-
+    let $template = $('.tweet:nth-of-type('+ j +')', $templateContainer);
+    console.log($template)
     $template
       .find('.tweet--header')
       .attr('href', authorInfo.link);

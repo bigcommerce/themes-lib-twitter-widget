@@ -99,11 +99,13 @@ export default {
             this.submitInProgress = false;
             this.success = true;
             window.scrollTo(0, 0);
+            console.log(response);
         }.bind(this))
         .catch(function(error) {
           this.submitInProgress = false;
           this.error = true;
           window.scrollTo(0, 0);
+          console.log(error);
         }.bind(this));
     },
     closeNotifications: function () {
