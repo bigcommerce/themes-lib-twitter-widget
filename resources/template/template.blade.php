@@ -3,25 +3,45 @@
   <input type="hidden" data-handle="@{{handle}}" >
   <input type="hidden" data-max-tweets="@{{maxTweets}}">
   <h3 class="section-title tweet-section-title">Twitter Feed</h3>
-  @{{#for 1 maxTweets}}
-      <article class="tweet">
-          <a
-              href="#"
-              class="tweet--header"
-              target="__blank"
-          >
-              <span class="tweet--header-avatar"></span>
-              <span class="tweet--header-author">
-                <span class="tweet--header-name">Your Twitter Account</span>
-                <span class="tweet--header-screenname">@youraccount</span>
-              </span>
-          </a>
-          <span class="tweet--content"></span>
-          <span class="tweet--footer">
-              <span class="tweet--footer--posted"></span>
+  @{{#if maxTweets '===' '1'}}
+    <article class="tweet">
+      <a
+          href="#"
+          class="tweet--header"
+          target="__blank"
+      >
+          <span class="tweet--header-avatar"></span>
+          <span class="tweet--header-author">
+            <span class="tweet--header-name">Your Twitter Account</span>
+            <span class="tweet--header-screenname">@youraccount</span>
           </span>
-      </article>
-  @{{/for}}
+      </a>
+      <span class="tweet--content"></span>
+      <span class="tweet--footer">
+          <span class="tweet--footer--posted"></span>
+      </span>
+    </article>
+  @{{else}}
+    @{{#for 1 maxTweets}}
+        <article class="tweet">
+            <a
+                href="#"
+                class="tweet--header"
+                target="__blank"
+            >
+                <span class="tweet--header-avatar"></span>
+                <span class="tweet--header-author">
+                  <span class="tweet--header-name">Your Twitter Account</span>
+                  <span class="tweet--header-screenname">@youraccount</span>
+                </span>
+            </a>
+            <span class="tweet--content"></span>
+            <span class="tweet--footer">
+                <span class="tweet--footer--posted"></span>
+            </span>
+        </article>
+    @{{/for}}
+  @{{/if}}
 </section>
 </div>
 <script src="https://unpkg.com/jquery@3.2.1/dist/jquery.js"></script>

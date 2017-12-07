@@ -31,14 +31,23 @@ class BigCommerceQueries
 
     public function updateUser($userInfo)
     {
-        $userUpdated = DB::table('users')
-            ->where('context', $userInfo['context'])
-            ->update([
-                'twitter_handle' => $userInfo['twitterHandle'],
-                'number_posts' => $userInfo['numberPosts'],
-            ]);
+        $currentUser = $this->getUser($userInfo['context']);
 
-        return $this->getUser($userInfo['context']);
+        if ($currentUser) {
+            $userUpdated = DB::table('users')
+                ->where('context', $userInfo['context'])
+                ->update([
+                    'twitter_handle' => $userInfo['twitterHandle'],
+                    'number_posts' => $userInfo['numberPosts']
+                ]);
+
+            if (!$userUpdated) {
+                abort('500');
+            }
+        } else {
+            abort(401, 'Not authenticated');
+        }
+        return $currentUser;
     }
 
     public function getUser($context)

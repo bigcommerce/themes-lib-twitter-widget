@@ -18,7 +18,7 @@ class BigCommerceWidgets
 
     public function createWidget()
     {
-        $this->deleteWidgets();
+        $deletedWidgetCount = $this->deleteWidgets();
 
         $widget = $this->client->post('content/widgets', ['json'=>[
             'name'=> 'Twitter Widget',
@@ -36,18 +36,24 @@ class BigCommerceWidgets
             'status'=>'active'
         ]]);
 
-        return $placement;
+        return [
+            'deletedWidgetCount' => $deletedWidgetCount,
+            'newWidget' => $widget,
+            'newPlacement' => $placement
+        ];
     }
 
     private function deleteWidgets()
     {
         $widgets = $this->client->get('content/widgets');
+        $deletedWidgetCount = 0;
         foreach ($widgets as $widget) {
             if ($widget->widget_template->uuid === $this->templateID) {
                 $this->client->delete('content/widgets/' . $widget->uuid);
+                $deletedWidgetCount++;
             }
         }
 
-        return;
+        return $deletedWidgetCount;
     }
 }

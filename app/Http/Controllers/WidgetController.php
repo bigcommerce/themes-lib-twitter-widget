@@ -31,7 +31,7 @@ class WidgetController extends Controller
         $requestData = $request->all();
         $user = $queries->updateUser($requestData);
         $widgetHelper = new BigCommerceWidgets($user->context, $user->access_token);
-        $widgetPlacement = $widgetHelper->createWidget();
-        return json_encode(is_object($widgetPlacement));
+        $widget = $widgetHelper->createWidget();
+        return json_encode($widget);
     }
 }

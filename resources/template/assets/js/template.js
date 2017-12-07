@@ -1,7 +1,10 @@
 $(document).ready(function() {
   const $tweets = $('.tweets');
   const handle = $tweets.find('[data-handle]').data('handle').replace('@', '');
-  const maxTweets = $tweets.find('[data-max-tweets]').data('max-tweets');
+  const maxTweets =
+  $tweets.find('[data-max-tweets]').data('max-tweets')
+  ? $tweets.find('[data-max-tweets]').data('max-tweets')
+  : 4;
 
   const configList = {
     "profile": {'screenName': handle},
@@ -42,16 +45,13 @@ function populateTpl(tweets){
   // todo proper scoping
   const $templateContainer = $('.tweets');
   let html = '';
-  console.log(tweets.length);
   for (let i = 0, lgth = tweets.length; i < lgth ; i++) {
     let $tweetObject = $(tweets[i]);
-    console.log($tweetObject);
     const authorInfo = extractAuthor($tweetObject[0]);
     const meta = extractMeta($tweetObject[2]);
     const content = $tweetObject[1];
     const j = i+1;
     let $template = $('.tweet:nth-of-type('+ j +')', $templateContainer);
-    console.log($template)
     $template
       .find('.tweet--header')
       .attr('href', authorInfo.link);
