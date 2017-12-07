@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Libraries\BigCommerce\BigCommerceOAuthorizer;
 use App\Libraries\BigCommerce\BigCommerceQueries;
 use App\Libraries\BigCommerce\BigCommerceTemplates;
+use App\Libraries\BigCommerce\BigCommerceStore;
 
 class AuthController extends Controller
 {
@@ -33,5 +34,12 @@ class AuthController extends Controller
         ];
 
         return view('editor', $data);
+    }
+
+    public function uninstall(Request $request)
+    {
+        $store = new BigCommerceStore();
+
+        $store->deleteStore($request);
     }
 }

@@ -5,7 +5,8 @@ use Illuminate\Support\Facades\DB;
 
 class BigCommerceStore
 {
-    private function checkPayload($request) {
+    private function checkPayload($request)
+    {
         $payload = $request->signed_payload;
         list($encodedData, $encodedSignature) = explode('.', $payload, 2);
 
@@ -30,5 +31,12 @@ class BigCommerceStore
         $data = $this->checkPayload($request);
 
         return DB::table('users')->where('context', $data['context'])->first();
+    }
+
+    public function deleteStore($request)
+    {
+        $data = $this->checkPayload($request);
+
+        return DB::table('users')->where('context', $data['context'])->delete();
     }
 }
