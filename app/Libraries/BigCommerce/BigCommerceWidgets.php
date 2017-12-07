@@ -43,7 +43,7 @@ class BigCommerceWidgets
         ];
     }
 
-    private function deleteWidgets()
+    public function deleteWidgets()
     {
         $widgets = $this->client->get('content/widgets');
         $deletedWidgetCount = 0;

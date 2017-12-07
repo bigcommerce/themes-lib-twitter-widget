@@ -7,6 +7,7 @@ use App\Libraries\BigCommerce\BigCommerceOAuthorizer;
 use App\Libraries\BigCommerce\BigCommerceQueries;
 use App\Libraries\BigCommerce\BigCommerceTemplates;
 use App\Libraries\BigCommerce\BigCommerceStore;
+use App\Libraries\BigCommerce\BigCommerceWidgets;
 
 class AuthController extends Controller
 {
@@ -39,7 +40,14 @@ class AuthController extends Controller
     public function uninstall(Request $request)
     {
         $store = new BigCommerceStore();
+        $data = $store->checkPayload($request);
+        $queries = new BigCommerceQueries();
+        $user = $queries->getUser($data['context']);
+        $widgetHelper = new BigCommerceWidgets($user->context, $user->access_token);
 
-        $store->deleteStore($request);
+        // Delete widget from user's store
+        $widgetHelper->deleteWidgets();
+        // Delete from db
+        $widgetData = $store->deleteStore($user->context);
     }
 }
