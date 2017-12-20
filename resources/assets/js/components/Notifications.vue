@@ -16,7 +16,7 @@
     props: ['success', 'error'],
     methods: {
       closeNotifications: function () {
-        this.$emit('close-notifications');
+        this.$emit('closeNotifications');
       }
     }
   };

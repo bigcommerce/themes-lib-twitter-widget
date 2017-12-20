@@ -1,9 +1,9 @@
 <template>
   <div>
     <notifications
-      v-bind:error="error"
-      v-bind:success="success"
-      v-on:close-notifications="closeNotifications"
+      :error="error"
+      :success="success"
+      @closeNotifications="closeNotifications"
     >
     </notifications>
     <h2 class="section-title">Twitter Settings</h2>
@@ -29,7 +29,7 @@
       <div class="field">
         <label for="number-posts" class="label">Number of Posts</label>
         <div class="control">
-          <select class="select" name="number-posts" v-model="howMany">
+          <select class="select" name="number-posts" v-model="howManyPosts">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -42,10 +42,10 @@
       </div>
     </div>
     <saveBar
-      v-bind:handle="handle"
-      v-bind:store-hash="storeHash"
-      v-bind:how-many="howMany"
-      v-on:widget-saved="updateStates"
+      :handle="handle"
+      :storeHash="storeHash"
+      :numPosts="howManyPosts"
+      @onWidgetSaved="updateStates"
     >
     </saveBar>
   </div>
@@ -69,7 +69,7 @@ export default {
     return {
       handle: this.twitterHandle,
       storeHash: this.context,
-      howMany: this.numPosts,
+      howManyPosts: this.numPosts,
       success: false,
       error: false
     };
