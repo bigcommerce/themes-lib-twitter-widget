@@ -1,0 +1,24 @@
+.pxu-branding-container {
+  margin-top: 68px;
+  margin-bottom: 38px;
+}
+
+.pxu-branding {
+  display: flex;
+  align-items: center;
+  height: 56px;
+  width: 266px;
+  padding: 12px;
+  border: 1px solid #DFE3E8;
+  border-radius: 38px;
+
+  svg {
+    height: 32px;
+    width: 32px;
+    padding-right: 8px;
+  }
+}
+
+.pxu-learn-more {
+  font-size: 14px;
+}

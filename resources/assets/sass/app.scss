@@ -1,132 +1,96 @@
-@import '../../../node_modules/bulma/bulma';
-@import 'fonts';
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600');
+@import 'pxu-branding';
 
-$background-color: #F6F7F9;
-$border-color: #DFE3E8;
-$success-color: #5AC769;
-$merchant-red: #DF5855;
+$background-color: #fff;
+$body-background-color: #f6f7f9;
+$border-color: #D7D6D9;
+$input-color: #212b36;
+$label-color: #666;
+$placeholder-color: #ccc;
 
-.main-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 100vh;
-  font-family: Circular, sans-serif;
-  background-color: $background-color;
+$primary-font: 'Source Sans Pro', sans-serif;
+
+html, body {
+  margin: {
+    top: 30px;
+    right: 50px;
+    left: 50px;
+  }
+
+  font-family: $primary-font;
+  background-color: $body-background-color;
 }
 
-.merchant-branding {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 56px;
-  background-color: #fff;
+.app-title {
+  margin-bottom: 30px;
+  font-size: 30px;
+  font-weight: 300;
+}
 
-  img {
-    height: 46px;
-  }
+.section-title {
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: 500;
 }
 
 .container {
-  max-width: 380px;
+  overflow: auto;
+  background-color: $background-color;
+  border-radius: 3px;
+  box-shadow: 0 2px rgba(0, 0, 0, 0.07);
 }
 
-.is-title {
-  margin-top: 68px;
-  margin-bottom: 34px;
-  font-size: 24px;
-}
-
-.field:not(.last-child) {
-  margin-bottom: 24px;
+.field {
+  display: flex;
+  margin-top: 28px;
+  margin-bottom: 28px;
 }
 
 .label {
+  width: 210px;
+  margin-right: 18px;
+  padding-top: 10px;
   font-size: 14px;
-  font-weight: 400;
+  text-align: right;
+  color: $label-color;
 }
 
-.input,
-.select select {
-  height: 36px;
-  font-size: 14px;
-  color: #000;
-  border-radius: 0;
-  box-shadow: none;
+.control {
+  width: 370px;
+}
 
-  &:active,
-  &:focus {
-    border-color: $merchant-red;
-    box-shadow: none;
-  }
+.input {
+  width: 100%;
+  height: 34px;
+  padding-left: 9px;
+  font-family: $primary-font;
+  font-size: 14px;
+  color: $input-color;
+  border-radius: 3px;
+  border: 1px solid $border-color;
+  box-sizing: border-box;
 
   &::placeholder {
-    opacity: 20%;
+    color: $placeholder-color;
   }
 }
 
-.select:not(.is-multiple)::after {
-  border-color: $merchant-red;
-}
-
-.button {
-  display: flex;
-  width: 85px;
-  height: 38px;
-  padding-top: 0;
-  padding-bottom: 0;
-  color: #fff !important;
+.select {
+  width: 100%;
+  height: 34px;
+  padding-right: 9px;
+  padding-left: 9px;
+  font-family: $primary-font;
   font-size: 14px;
-  background-color: $merchant-red;
-  border: none;
-  border-radius: 38px;
-
-  &:hover,
-  &:active,
-  &:focus
-  &.is-loading {
-    opacity: 0.5;
-  }
-}
-
-.pxu-branding-container {
-  margin-top: 68px;
-  margin-bottom: 38px;
-}
-
-.pxu-branding {
-  display: flex;
-  align-items: center;
-  height: 56px;
-  width: 266px;
-  padding: 12px;
+  color: $input-color;
+  border-radius: 3px;
   border: 1px solid $border-color;
-  border-radius: 38px;
-
-  svg {
-    height: 32px;
-    width: 32px;
-    padding-right: 8px;
-  }
+  background-color: $background-color;
 }
 
-.pxu-learn-more {
-  font-size: 14px;
-}
-
-.notification {
-  font-size: 14px;
-  color: #fff;
-  text-align: center;
-
-  > .delete {
-    top: 20px;
-    right: 10px;
-    background-color: transparent;
-  }
-
-  &.is-primary {
-    background-color: $success-color;
-  }
+.help {
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-size: 12px;
+  line-height: 16px;
 }
