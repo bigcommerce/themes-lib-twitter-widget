@@ -5,14 +5,14 @@
     <link rel="stylesheet" type="text/css" href="{{ mix('css/app.css') }}" />
   </head>
   <body>
+    <h1 class="app-title">Merchant - Twitter Widget</h1>
     <section id="widget-editor" class="main-section">
-        <editor
-          :twitter-handle="'{{$user['twitter_handle']}}'"
-          :context="'{{$user['context']}}'"
-          :num-posts="'{{$user['number_posts']}}'"
-        >
-        </editor>
-      </div>
+      <editor
+        :twitter-handle="'{{$user['twitter_handle']}}'"
+        :context="'{{$user['context']}}'"
+        :num-posts="'{{$user['number_posts']}}'"
+      >
+      </editor>
       <div class="container pxu-branding-container">
         <div class="level">
           <div class="level-item">
