@@ -1,0 +1,46 @@
+$font-primary: 'Source Sans Pro', sans-serif;
+
+// General Colors
+$color-primary-1: #4B71F6;
+$color-primary-2: #6F8DFD;
+$color-primary-3: #3E5ED6;
+
+$color-primary: $color-primary-1;
+$color-primary-hover: $color-primary-2;
+$color-black: #212B36;
+$color-dimmed: #71777E;
+$color-muted: #CCCCCC;
+$color-white: #FFFFFF;
+
+// Banners
+$color-success: #69C876;
+$color-success-dimmed: #E2F5E2;
+
+$color-error: #EF6044;
+$color-error-dimmed: #FCE0D9;
+
+// Body
+$color-background: $color-white;
+$color-body: $color-black;
+$color-body-light: $color-dimmed;
+$color-body-background: #f6f7f9;
+
+// Borders
+$color-border: #EDEDED;
+$color-divider: #D7D6D9;
+
+// Buttons Text
+$color-text-button: $color-white;
+$color-text-link: $color-primary-2;
+$color-text-link-hover: $color-primary-3;
+
+// Buttons
+$color-button-primary: $color-primary;
+$color-button-primary-hover: $color-primary-2;
+
+// Fields
+$color-text-placeholder: $color-muted;
+$color-text-placeholder-active: $color-body;
+
+// Headings
+$color-heading: $color-body;
