@@ -1,0 +1,20 @@
+.notification {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 15px 24px;
+  font-size: 14px;
+  line-height: 18px;
+  color: $color-black;
+  border-radius: 1px 0 0 1px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .15);
+
+  &.is-primary {
+    background-color: #E2F5E2;
+    border-left: 8px solid #69C876;
+  }
+
+  &.is-danger {
+    background-color: #FCE0D9;
+    border-left: 8px solid #EF6044;
+  }
+}

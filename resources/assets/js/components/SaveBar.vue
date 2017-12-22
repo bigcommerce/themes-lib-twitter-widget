@@ -1,11 +1,18 @@
 <template>
-  <div class="control">
+  <div class="save-bar">
+    <button
+      @click="resetForm"
+      class="button button-secondary"
+    >
+      Cancel
+    </button>
     <button
       @click="saveWidget"
-      :class="{ 'button' : true, 'is-loading' : internalSubmitInProgress}"
+      :class="{ 'button button-primary' : true, 'is-loading' : internalSubmitInProgress}"
       :disabled="internalSubmitInProgress"
     >
-      Save
+      <span v-if="internalSubmitInProgress">Saving...</span>
+      <span v-if="!internalSubmitInProgress">Save</span>
     </button>
   </div>
 </template>
@@ -32,13 +39,16 @@
           function(response) {
             this.internalSubmitInProgress = false;
             window.scrollTo(0, 0);
-            this.$emit('onWidgetSaved', true);
+            this.$emit('onWidgetSaved', [this.handle, this.numPosts]);
         }.bind(this))
         .catch(function(error) {
           this.internalSubmitInProgress = false;
           this.$emit('onWidgetSaved', false);
           window.scrollTo(0, 0);
         }.bind(this));
+      },
+      resetForm: function() {
+        this.$emit('formReset');
       }
     }
   }

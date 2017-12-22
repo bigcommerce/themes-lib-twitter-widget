@@ -42,10 +42,12 @@
       </div>
     </div>
     <saveBar
+      v-if="showSaveBar"
       :handle="handle"
       :storeHash="storeHash"
       :numPosts="howManyPosts"
       @onWidgetSaved="updateStates"
+      @formReset="resetForm"
     >
     </saveBar>
   </div>
@@ -68,17 +70,23 @@ export default {
   data: function() {
     return {
       handle: this.twitterHandle,
-      storeHash: this.context,
+      savedHandle: this.twitterHandle,
       howManyPosts: this.numPosts,
+      savedNumPosts: this.numPosts,
+      storeHash: this.context,
       success: false,
-      error: false
+      error: false,
+      showSaveBar: false
     };
   },
   methods: {
-    updateStates: function(success) {
+    updateStates: function(data) {
       this.closeNotifications();
+      this.showSaveBar = false;
 
       if (success) {
+        this.savedHandle = data[0];
+        this.savedNumPosts = data[1];
         this.success = true;
       } else {
         this.error = true;
@@ -87,6 +95,28 @@ export default {
     closeNotifications: function() {
       this.success = false;
       this.error = false;
+    },
+    resetForm: function() {
+      this.success = false;
+      this.error = false;
+      this.handle = this.savedHandle;
+      this.howManyPosts = this.savedNumPosts;
+      this.showSaveBar = false;
+    },
+    toggleSaveBar: function() {
+      if (this.handle !== this.savedHandle || this.howManyPosts !== this.savedNumPosts) {
+        this.showSaveBar = true;
+      } else {
+        this.showSaveBar = false;
+      }
+    }
+  },
+  watch: {
+    handle: function() {
+      this.toggleSaveBar();
+    },
+    howManyPosts: function() {
+      this.toggleSaveBar();
     }
   }
 };
