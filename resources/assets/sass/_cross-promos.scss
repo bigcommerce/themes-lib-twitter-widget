@@ -1,0 +1,40 @@
+.cross-promo-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.cross-promo {
+  display: flex;
+  align-items: center;
+  flex-basis: 100%;
+  margin-top: 20px;
+  padding: 14px 28px 14px 14px;
+  background-color: $color-background;
+}
+
+.cross-promo-image {
+  width: 175px;
+  margin-right: 28px;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.cross-promo-title {
+  margin-top: 0;
+  margin-bottom: 14px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.cross-promo-description {
+  font-size: 14px;
+  color: $color-body;
+}
+
+.cross-promo-button {
+  margin-left: auto;
+}
