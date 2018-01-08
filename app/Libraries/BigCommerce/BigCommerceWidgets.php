@@ -47,6 +47,7 @@ class BigCommerceWidgets
     {
         $widgets = $this->client->get('content/widgets');
         $deletedWidgetCount = 0;
+
         foreach ($widgets as $widget) {
             if ($widget->widget_template->uuid === $this->templateID) {
                 $this->client->delete('content/widgets/' . $widget->uuid);

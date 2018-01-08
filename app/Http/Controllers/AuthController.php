@@ -39,6 +39,7 @@ class AuthController extends Controller
 
     public function uninstall(Request $request)
     {
+        // There's no point returning anything here because BC will ignore it.
         $store = new BigCommerceStore();
         $data = $store->checkPayload($request);
         $queries = new BigCommerceQueries();
@@ -48,6 +49,6 @@ class AuthController extends Controller
         // Delete widget from user's store
         $widgetHelper->deleteWidgets();
         // Delete from db
-        $widgetData = $store->deleteStore($user->context);
+        $store->deleteStore($user->context);
     }
 }
