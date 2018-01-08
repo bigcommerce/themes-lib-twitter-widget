@@ -35,11 +35,6 @@ class BigCommerceStore
 
     public function deleteStore($context)
     {
-        $deleted = DB::table('users')->where('context', $context)->delete();
-
-        if ($deleted) {
-            return $data;
-        }
-        return false;
+        return DB::table('users')->where('context', $context)->delete();
     }
 }

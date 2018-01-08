@@ -39,7 +39,11 @@
           function(response) {
             this.internalSubmitInProgress = false;
             window.scrollTo(0, 0);
-            this.$emit('onWidgetSaved', [this.handle, this.numPosts]);
+            this.$emit('onWidgetSaved', {
+              'success': true,
+              'handle': this.handle,
+              'numPosts': this.numPost
+            });
         }.bind(this))
         .catch(function(error) {
           this.internalSubmitInProgress = false;
