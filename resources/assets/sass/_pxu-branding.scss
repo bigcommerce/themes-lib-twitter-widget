@@ -1,6 +1,8 @@
 .pxu-branding-container {
   margin-top: 68px;
   margin-bottom: 38px;
+  background-color: transparent;
+  box-shadow: none;
 }
 
 .pxu-branding {
@@ -8,7 +10,7 @@
   align-items: center;
   height: 56px;
   width: 266px;
-  padding: 12px;
+  padding: 12px 12px 12px 17px;
   border: 1px solid #DFE3E8;
   border-radius: 38px;
 
