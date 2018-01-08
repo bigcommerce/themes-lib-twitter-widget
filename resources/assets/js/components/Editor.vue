@@ -42,6 +42,7 @@
       </div>
     </div>
     <AccordionMenu :faqs="faqs"></AccordionMenu>
+    <crossPromos :promos="promos"></crossPromos>
     <saveBar
       v-if="showSaveBar"
       :handle="handle"
@@ -58,6 +59,7 @@
 import Notifications from "./Notifications.vue";
 import SaveBar from "./SaveBar.vue";
 import AccordionMenu from './AccordionMenu.vue';
+import CrossPromos from "./CrossPromos.vue";
 
 export default {
   props: [
@@ -69,6 +71,7 @@ export default {
     Notifications,
     SaveBar,
     AccordionMenu,
+    CrossPromos
   },
   data: function() {
     return {
@@ -98,6 +101,20 @@ export default {
           msg: '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
         },
       ],
+      promos: [
+        {
+          title: 'Capacity theme',
+          description: 'Capacity sets a new standard for ecommerce navigation and search functionality.',
+          link: 'https://www.pixelunion.net/themes/capacity/',
+          img: 'https://s3-us-west-2.amazonaws.com/bc-theme-utils/twitter-widget/img/pixelpop.png'
+        },
+        {
+          title: 'PixelPop - Popups & Banners with Exit-Intent',
+          description: 'Pixelpop is an all-in-one popup maker by the ecommerce design team PixelUnion',
+          link: 'https://www.bigcommerce.com/apps/pixelpop-popups-banners-with-exit-intent/',
+          img: 'https://s3-us-west-2.amazonaws.com/bc-theme-utils/twitter-widget/img/pixelpop.png'
+        }
+      ]
     };
   },
   methods: {
