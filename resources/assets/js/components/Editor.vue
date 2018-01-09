@@ -121,10 +121,11 @@ export default {
     updateStates: function(data) {
       this.closeNotifications();
       this.showSaveBar = false;
+// const success = data[0];
 
-      if (success) {
-        this.savedHandle = data[0];
-        this.savedNumPosts = data[1];
+      if (data.success) {
+        this.savedHandle = data.handle;
+        this.savedNumPosts = data.numPosts;
         this.success = true;
       } else {
         this.error = true;
@@ -142,7 +143,9 @@ export default {
       this.showSaveBar = false;
     },
     toggleSaveBar: function() {
-      if (this.handle !== this.savedHandle || this.howManyPosts !== this.savedNumPosts) {
+      if (this.handle &&
+        (this.handle !== this.savedHandle || this.howManyPosts !== this.savedNumPosts)
+      ) {
         this.showSaveBar = true;
       } else {
         this.showSaveBar = false;
