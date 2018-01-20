@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('access_token');
             $table->string('context');
             $table->integer('user_id');
-            $table->string('twitter_handle')->nullable();
+            $table->string('twitter_handle')->default('')->nullable();
             $table->integer('number_posts')->default(4);
         });
     }
