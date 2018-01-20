@@ -11,5 +11,3 @@ npm-debug.log
 yarn-error.log
 .env
 /resources/template/build
-/public/css
-/public/js
